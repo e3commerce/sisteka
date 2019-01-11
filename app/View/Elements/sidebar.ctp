@@ -3,7 +3,7 @@
   <?php echo $this->Html->link('<i class="fa fa-area-chart"></i>', array('controller' => 'pages', 'action' => 'index'), array('escape' => false, 'class' => 'logo-icon')) ?>
     <!-- <a class="logo-icon" href="../index.html"></a> -->
     <span class="logo">
-     <?php echo $this->Html->link('<b>Sistema</b>', array('controller' => 'pages', 'action' => 'index'), array('escape' => false)) ?>
+     <?php echo $this->Html->link('<b>Sisteka</b>', array('controller' => 'pages', 'action' => 'index'), array('escape' => false)) ?>
       <!-- <a href="../index.html">e3</a> -->
     </span>
     <span class="sidebar-toggle-fold"></span>
@@ -12,7 +12,7 @@
   <nav class="sidebar-navigation">
     <ul class="menu">
 
-    <!-- 
+    <!--
 
       <li class="menu-category">Category 1</li>
 
@@ -49,22 +49,22 @@
 
  -->
 
-     
 
-      
+
+
 
       <li class="menu-category">Financeiro</li>
 
-      
+
 
 
             <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Movimentações</span><span class="arrow"></span>', array('controller' => 'catalogoprodutos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
             <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Despesas</span><span class="arrow"></span>', array('controller' => 'catalogoprodutos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
-          
 
-      
 
-      
+
+
+
 
         <li class="menu-category">Estoque</li>
 
@@ -76,7 +76,7 @@
 
           <?php echo $this->Html->link('<span class="icon fa fa-money"></span><span class="title">Pedidos</span><span class="arrow"></span>', array('controller' => 'fechamentos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
 
-        
+
  <li class="menu-category">Administração Geral</li>
 
 
@@ -93,20 +93,20 @@
           <li class="menu-item">
             <?php echo $this->Html->link('<span class="dot"></span><span class="title">Empresas</span><span>&nbsp;</span>', array('controller' => 'empresas', 'action' => 'index', 'todos'), array('escape' => false, 'class' => 'menu-link') );?>
           </li>
-          
-          
-          
-          
-                
 
-          
+
+
+
+
+
+
         </ul>
       </li>
 
 
 
 
-      
+
 
     </ul>
   </nav>
