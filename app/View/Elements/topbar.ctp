@@ -14,7 +14,8 @@
             <li class="menu-item active open">
               <a class="menu-link" href="#">
                 <span class="fa fa-user"></span>
-                <span class="title"><?php echo $userData['first_name'].' ('.$userData['last_name'].')' ?></span>
+
+                <span class="title"><?php echo $userData['first_name'].' '.$userData['last_name'] ?></span>
                 <span class="arrow"></span>
               </a>
 

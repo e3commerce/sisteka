@@ -6,6 +6,7 @@
 			<strong>Empresas</strong> Cadastradas
 			<small>Stylized tables to allow audience grabs the information in a glance.</small>
 		</h1>
+		<div><?php echo $this->Html->link('<i class="fa fa-plus-square"></i> Cadastrar nova empresa</span>', '#', array('data-target' => '#addEmpresa', 'data-toggle' => 'modal', 'escape' => false, 'class'=>'btn btn-xs btn-success')); ?></div>
 	</div>
 
 
@@ -29,6 +30,7 @@
 							<tr>
 								<th width="100"><?php echo $this->Paginator->sort('id','ID'); ?></th>
 								<th><?php echo $this->Paginator->sort('data','Nome'); ?></th>
+								<th><?php echo $this->Paginator->sort('created','Criado em'); ?></th>
 
 
 								<th style="text-align: right;">Detalhes</th>
@@ -39,6 +41,7 @@
 								<tr>
 									<td><?php echo $vEmpresa['Empresa']['id'] ?></td>	
 									<td><?php echo $vEmpresa['Empresa']['nome'] ?></td>
+									<td><?php echo $this->Brainme->datatime($vEmpresa['Empresa']['created']) ?></td>
 
 
 
@@ -81,7 +84,7 @@
 	<?php echo $this->Form->create('Empresa', array('url' => array('controller' => 'empresas', 'action' => 'edit'))); ?>
 
 	<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vEmpresa['Empresa']['id'])); ?>
-		
+
 
 
 	<div class="modal fade" id="empresa_<?php echo $vEmpresa['Empresa']['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -89,15 +92,15 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel"><?php echo $vEmpresa['Empresa']['nome'] ?></h4>
+					<h4 class="modal-title" id="myModalLabel">Editar empresa: <?php echo $vEmpresa['Empresa']['nome'] ?></h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-lg-12">
 
-		<?php echo $this->Form->input('nome', array('class' => 'form-control campo', 'label' => 'Nome', 'placeholder' => 'Nome da empresa', 'value' => $vEmpresa['Empresa']['nome'])); ?>
-		
-		</div>
+							<?php echo $this->Form->input('nome', array('class' => 'form-control campo', 'label' => 'Nome', 'placeholder' => 'Nome da empresa', 'value' => $vEmpresa['Empresa']['nome'])); ?>
+
+						</div>
 					</div>
 				</div>
 
@@ -105,7 +108,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							
-		<?php echo $this->Form->submit('Finalizar', array('class' => 'btn-finalizar'));?>	
+							<?php echo $this->Form->submit('Editar empresa', array('class' => 'btn btn-success'));?>
 						</div>
 					</div>
 				</div>
@@ -116,4 +119,34 @@
 	<?php echo $this->Form->end(); ?>
 <?php } ?>
 
+<?php echo $this->Form->create('Empresa', array('url' => array('controller' => 'empresas', 'action' => 'add'))); ?>
+<div class="modal fade" id="addEmpresa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Cadastar nova empresa</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-12">
+
+							<?php echo $this->Form->input('nome', array('class' => 'form-control campo', 'label' => 'Nome', 'placeholder' => 'Nome da empresa')); ?>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-lg-12">
+							
+							<?php echo $this->Form->submit('Cadastrar empresa', array('class' => 'btn btn-success'));?>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo $this->Form->end(); ?>
 
