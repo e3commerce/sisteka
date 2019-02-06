@@ -4,6 +4,8 @@ class BrainmeComponent extends Component
 {
 	public function __construct(){}
 
+	
+
 	public function diasUteis($dias)
 	{
 		$data = date('Y-m-d');

@@ -5,13 +5,13 @@ class Empresa extends AppModel {
 
 	public $order = 'Empresa.nome asc';
 
-	public $displayField = 'Empresa.nome';
+	public $displayField = 'nome';
 
 	public $validate = array(
 		'nome' => array(
 			'notBlank' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Nome não pode ser vazio',
+				'rule' => array('notBlank'),
+				'message' => 'Este campo não pode ser vazio',
 			),
 		),
 	);

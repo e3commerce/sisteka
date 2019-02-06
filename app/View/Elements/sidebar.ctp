@@ -59,7 +59,7 @@
 
 
             <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Movimentações</span><span class="arrow"></span>', array('controller' => 'catalogoprodutos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
-            <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Despesas</span><span class="arrow"></span>', array('controller' => 'catalogoprodutos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
+            <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Despesas</span><span class="arrow"></span>', array('controller' => 'despesas', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
 
 
 

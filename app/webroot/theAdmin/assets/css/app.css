@@ -12383,6 +12383,7 @@ label {
   font-weight: 400;
   font-size: 12px;
   letter-spacing: .5px;
+  margin-top: 15px;
 }
 
 label.require::after, label.required::after {
