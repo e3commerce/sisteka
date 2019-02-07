@@ -8,16 +8,17 @@ class Despesa extends AppModel {
 	public $displayField = 'Despesa.nome';
 
 	public $tipos = array(
-		'Fixos',
-		'Pagamentos',
+		1 => 'Fixos',
+		2 => 'Pontuais',
+		3 => 'Fornecedores',
 	);
 
 	public $formas = array(
-		'Dinheiro a vista',
-		'Tranferência Bancária',
-		'Cartão de Débito',
-		'Cartão de Crédito',
-		'Cheque',
+		1 => 'Dinheiro a vista',
+		2 => 'Tranferência Bancária',
+		3 => 'Cartão de Débito',
+		4 => 'Cartão de Crédito',
+		5 => 'Cheque',
 	);
 
 	public $validate = array(

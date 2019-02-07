@@ -4,7 +4,7 @@
 	<div class="header-info">
 		<h1 class="header-title">
 			<strong>Empresas</strong> Cadastradas
-			<small>Stylized tables to allow audience grabs the information in a glance.</small>
+			<small>Página de Administração das Empresas</small>
 		</h1>
 		<div><?php echo $this->Html->link('<i class="fa fa-plus-square"></i> Cadastrar nova empresa</span>', '#', array('data-target' => '#addEmpresa', 'data-toggle' => 'modal', 'escape' => false, 'class'=>'btn btn-xs btn-success')); ?></div>
 	</div>

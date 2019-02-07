@@ -3,7 +3,7 @@
   <?php echo $this->Html->link('<i class="fa fa-area-chart"></i>', array('controller' => 'pages', 'action' => 'index'), array('escape' => false, 'class' => 'logo-icon')) ?>
     <!-- <a class="logo-icon" href="../index.html"></a> -->
     <span class="logo">
-     <?php echo $this->Html->link('<b>Sisteka</b>', array('controller' => 'pages', 'action' => 'index'), array('escape' => false)) ?>
+     <?php echo $this->Html->link('<b>SISTEKA</b>', array('controller' => 'pages', 'action' => 'index'), array('escape' => false)) ?>
       <!-- <a href="../index.html">e3</a> -->
     </span>
     <span class="sidebar-toggle-fold"></span>
@@ -58,7 +58,6 @@
 
 
 
-            <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Movimentações</span><span class="arrow"></span>', array('controller' => 'catalogoprodutos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
             <?php echo $this->Html->link('<span class="icon fa fa-list"></span><span class="title">Despesas</span><span class="arrow"></span>', array('controller' => 'despesas', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
 
 
@@ -66,15 +65,15 @@
 
 
 
-        <li class="menu-category">Estoque</li>
+        <!-- <li class="menu-category">Estoque</li> -->
 
 
-          <?php echo $this->Html->link('<span class="icon fa fa-money"></span><span class="title">Controle</span><span class="arrow"></span>', array('controller' => 'fechamentos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
+          <?php //echo $this->Html->link('<span class="icon fa fa-money"></span><span class="title">Controle</span><span class="arrow"></span>', array('controller' => 'fechamentos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
 
-          <li class="menu-category">Vendas</li>
+          <!-- <li class="menu-category">Vendas</li> -->
 
 
-          <?php echo $this->Html->link('<span class="icon fa fa-money"></span><span class="title">Pedidos</span><span class="arrow"></span>', array('controller' => 'fechamentos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
+          <?php //echo $this->Html->link('<span class="icon fa fa-money"></span><span class="title">Pedidos</span><span class="arrow"></span>', array('controller' => 'fechamentos', 'action' => 'index'), array('escape' => false, 'class' => 'menu-link') );?>
 
 
  <li class="menu-category">Administração Geral</li>
