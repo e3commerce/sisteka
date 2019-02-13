@@ -81,15 +81,19 @@
 
 <?php foreach ($empresas as $kEmpresa => $vEmpresa) { ?>
 
-	<?php echo $this->Form->create('Empresa', array('url' => array('controller' => 'empresas', 'action' => 'edit'))); ?>
-
-	<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vEmpresa['Empresa']['id'])); ?>
+	
 
 
 
 	<div class="modal fade" id="empresa_<?php echo $vEmpresa['Empresa']['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
+
+				<?php echo $this->Form->create('Empresa', array('url' => array('controller' => 'empresas', 'action' => 'edit'))); ?>
+
+	<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vEmpresa['Empresa']['id'])); ?>
+
+
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title" id="myModalLabel">Editar empresa: <?php echo $vEmpresa['Empresa']['nome'] ?></h4>
@@ -112,11 +116,42 @@
 						</div>
 					</div>
 				</div>
+
+				<?php echo $this->Form->end(); ?>
+<div class="modal-body">
+<div class="row">
+
+
+
+
+<div class="col-lg-12"  id="respostaDeleta<?php echo $vEmpresa['Empresa']['id']; ?>">
+
+
+
+<?php 
+echo $this->Form->create('Empresa');
+echo $this->Js->submit('Deletar', array(
+'update' => '#respostaDeleta'.$vEmpresa['Empresa']['id'],
+'url' => array('controller'=>'empresas', 'action' => 'delete', $vEmpresa['Empresa']['id']),
+'class' => 'btn btn-block btn-xs btn-danger ',
+)
+);
+echo $this->Js->writeBuffer(array('inline' => 'true'));
+echo $this->Form->end();
+?>
+
+
+
+</div>
+</div>
+</div>
+
+
 			</div>
 		</div>
 	</div>
 
-	<?php echo $this->Form->end(); ?>
+	
 <?php } ?>
 
 <?php echo $this->Form->create('Empresa', array('url' => array('controller' => 'empresas', 'action' => 'add'))); ?>

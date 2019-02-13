@@ -3,8 +3,8 @@ App::uses('AppController', 'Controller');
 
 class EmpresasController extends AppController {
 
-	public $components = array('Paginator', 'RequestHandler','Brainme');
-	public $uses = array('Empresa', 'Filtro');
+	public $components = array('Paginator', 'RequestHandler', 'Brainme');
+	public $uses = array('Empresa', 'Filtro', 'Despesa');
 
 
 	public function index($filtro = null) {
@@ -62,19 +62,30 @@ class EmpresasController extends AppController {
 
 
 	public function delete($id = null) {
-		$this->Pedido->id = $id;
-		if (!$this->Pedido->exists()) {
-			throw new NotFoundException(__('Invalid pedido'));
+		$this->render = false;
+		if ($this->request->is(array('post', 'put'))) {
+			$verificaDespesas = $this->Despesa->find('all', array('conditions' => array('Despesa.empresa_id' => $id)));
+			if (count($verificaDespesas) == 0) {
+				$this->Empresa->id = $id;
+				$this->Empresa->delete();
+				echo '
+				<div class="alert alert-success" role="alert">
+                  Empresa Deletada! <b>Atualize a página.</b>
+                </div>
+                ';
+			}else{
+				echo "<h4>Ops! Não pode ser deletado</h4>Despesas:<br>";
+				echo "<table class='table' style='width:100%;'>";
+				foreach ($verificaDespesas as $key => $value) {
+				echo "<tr>";
+				echo "<td>".$value['Despesa']['data']."</td>";
+				echo "<td>".$value['Despesa']['nome']."</td>";
+				echo "</tr>";
+				}
+				echo "</table>";
+			}
 		}
+		exit;
+	}
 
-
-
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Pedido->delete()) {
-			$this->Session->setFlash('Deletado com sucesso.', 'admin/flash_sucesso');
-		} else {
-			$this->Session->setFlash('Não foi deletado. Por favor, tente novamente', 'admin/flash_erro');
-		}
-		return $this->redirect(array('action' => 'index'));
-
-	}}
+}

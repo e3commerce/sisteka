@@ -133,19 +133,19 @@ foreach ($dados['lista'] as $kDados => $vDados){
 
 
 	public function delete($id = null) {
-		$this->Pedido->id = $id;
-		if (!$this->Pedido->exists()) {
-			throw new NotFoundException(__('Invalid pedido'));
+		$this->render = false;
+		if ($this->request->is(array('post', 'put'))) {
+				$this->Despesa->id = $id;
+				$this->Despesa->delete();
+				echo '
+				<div class="alert alert-success" role="alert">
+                  Despesa Deletada! <b>Atualize a página.</b>
+                </div>
+                ';
+			
 		}
+		exit;
+	}
 
 
-
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Pedido->delete()) {
-			$this->Session->setFlash('Deletado com sucesso.', 'admin/flash_sucesso');
-		} else {
-			$this->Session->setFlash('Não foi deletado. Por favor, tente novamente', 'admin/flash_erro');
-		}
-		return $this->redirect(array('action' => 'index'));
-
-	}}
+}

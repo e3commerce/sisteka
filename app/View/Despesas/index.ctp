@@ -125,13 +125,15 @@
 
 
 
+                                                  <div class="modal fade" id="despesa_<?php echo $vDespesa['Despesa']['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="text-align: left;">
+
+
+                                                       <div class="modal-dialog">
+                                                            <div class="modal-content">
 
 
                                                   <?php echo $this->Form->create('Despesa', array('url' => array('controller' => 'despesas', 'action' => 'edit'))); ?>
                                                   <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vDespesa['Despesa']['id'])); ?>
-                                                  <div class="modal fade" id="despesa_<?php echo $vDespesa['Despesa']['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="text-align: left;">
-                                                       <div class="modal-dialog">
-                                                            <div class="modal-content">
                                                                  <div class="modal-header">
                                                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                                       <h4 class="modal-title" id="myModalLabel">Editar despesa: <?php echo $vDespesa['Despesa']['nome'] ?></h4>
@@ -205,10 +207,32 @@
                                                                            </div>
                                                                       </div>
                                                                  </div>
+<?php echo $this->Form->end(); ?>
+
+                                                                 <div class="modal-body">
+<div class="row">
+<div class="col-lg-12"  id="respostaDeleta<?php echo $vDespesa['Despesa']['id']; ?>">
+<?php 
+echo $this->Form->create('Despesa');
+echo $this->Js->submit('Deletar', array(
+'update' => '#respostaDeleta'.$vDespesa['Despesa']['id'],
+'url' => array('controller'=>'despesas', 'action' => 'delete', $vDespesa['Despesa']['id']),
+'class' => 'btn btn-block btn-xs btn-danger ',
+)
+);
+echo $this->Js->writeBuffer(array('inline' => 'true'));
+echo $this->Form->end();
+?>
+</div>
+</div>
+</div>
+
+
+
                                                             </div>
                                                        </div>
                                                   </div>
-                                                  <?php echo $this->Form->end(); ?>
+                                                  
 
 
                                              </td>
