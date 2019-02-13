@@ -18,7 +18,8 @@ class Despesa extends AppModel {
 		2 => 'Tranferência Bancária',
 		3 => 'Cartão de Débito',
 		4 => 'Cartão de Crédito',
-		5 => 'Cheque',
+		5 => 'Cheque Próprio',
+		6 => 'Repasse de Cheque',
 	);
 
 	public $validate = array(
