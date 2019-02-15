@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
 class PagesController extends AppController {
 
 
-	public $uses = array('Pedido', 'Produto', 'Catalogoproduto', 'Pagamento', 'Fechamento');
+	public $uses = array('Pedido', 'Produto', 'Catalogoproduto', 'Pagamento', 'Fechamento', 'Despesa', 'Empresa');
 
 
 	public function acesso_negado() {
@@ -19,7 +19,23 @@ class PagesController extends AppController {
 
 	public function index() {
 
+		$config['Despesa'] =  $this->Despesa;
+
+
+		$despesas['emAtraso'] = 	$this->Despesa->find('all', array('conditions' => array('Despesa.pago' => 0, 'Despesa.data <' => date('Y-m-d'))));
+		$despesas['paraHoje'] = 	$this->Despesa->find('all', array('conditions' => array('Despesa.pago' => 0, 'Despesa.data' => date('Y-m-d'))));
+		$despesas['Futuras'] = 		$this->Despesa->find('all', array('conditions' => array('Despesa.pago' => 0, 'Despesa.data >' => date('Y-m-d'), 'Despesa.data <=' => date('Y-m-d', strtotime('+10 days')))));
+
+
+		$empresas = $this->Empresa->find('list');
+
 		
+
+
+
+
+
+		$this->set(compact('despesas', 'empresas', 'config'));
 
 	}
 
